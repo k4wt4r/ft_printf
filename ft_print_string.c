@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_print_string(char *str)
+int ft_print_string(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	if (str == NULL)
@@ -30,3 +29,20 @@ int	ft_print_string(char *str)
 	return (i);
 }
 
+int ft_printnbr(int n)
+{
+	int len;
+	char *num;
+
+	len = 0;
+	num = ft_itoa(n);
+	len = ft_printstr(num);
+	free(num);
+	return (len);
+}
+
+int ft_printpercent(void)
+{
+	write(1, "%", 1);
+	return (1);
+}
