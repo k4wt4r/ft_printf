@@ -6,7 +6,7 @@
 /*   By: kel-alam <kel-alam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:51:07 by kel-alam          #+#    #+#             */
-/*   Updated: 2021/11/23 16:25:10 by kel-alam         ###   ########.fr       */
+/*   Updated: 2021/11/23 16:27:57 by kel-alam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,3 @@ int	ft_print_ptr(unsigned long  ptr)
 	return (printf_len);
 }
 
-int main()
-{
-	unsigned long nb = 19;
-	ft_print_ptr(nb);
-}
