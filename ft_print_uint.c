@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_uint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-alam <kel-alam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 11:24:41 by kel-alam          #+#    #+#             */
-/*   Updated: 2021/11/23 12:45:55 by kel-alam         ###   ########.fr       */
+/*   Created: 2021/11/21 10:10:49 by kel-alam          #+#    #+#             */
+/*   Updated: 2021/11/23 15:19:34 by kel-alam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	len_num(unsigned int n)
 {
-	va_list	args;
-	int		print_len;
-	int		i;
+	int	len;
 
-	va_start(args, format);
-	print_len = 0;
-	i = 0;
-	while (format[i] != '\0')
+	len = 0;
+	while (n != 0)
 	{
-		if (format[i] == '%')
-		{
-			print_len += ft_format(args, format[i + 1]);
-			i++;
-		}
-
-		else
-			print_len += ft_print_char(format[i]);
-		i++;
+		len++;
+		n /= 10;
 	}
-	va_end(args);
-	return (print_len);
+	return (len);
 }
+
+int	ft_print_uint(unsigned int nb)
+{
+	int len;
+
+	len = 0;
+	if (nb > 10)
+		ft_print_uint(nb / 10);
+	ft_putchar(nb % 10 + '0');
+	len = len_num(nb);
+	return (len);
+}
+//ok -1

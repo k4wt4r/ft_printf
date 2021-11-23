@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_character.c                               :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kel-alam <kel-alam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 10:18:42 by kel-alam          #+#    #+#             */
-/*   Updated: 2021/11/18 15:57:41 by kel-alam         ###   ########.fr       */
+/*   Created: 2021/11/21 16:43:12 by kel-alam          #+#    #+#             */
+/*   Updated: 2021/11/23 14:51:13 by kel-alam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-
-int	ft_print_character(char c)
+#include "printf.h"
+#include <unistd.h>
+void	ft_print_char(char c)
 {
 	write (1, &c, 1);
-	return (1);
 }
