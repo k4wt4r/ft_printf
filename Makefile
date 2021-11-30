@@ -1,25 +1,31 @@
-SRCS =	ft_print_integer.c ft_print_string.c \
-		ft_print_char.c ft_print_hex.c  ft_print_unint.c\
-		ft_print_ptr.c ft_itoa.c ft_format.c \
-		ft_printf.c ft_putchar.c 
+NAME=libftprintf.a
 
-OBJS =	$(SRCS:.c=.o)
+CC=gcc
 
-CC =	gcc
-RM =	rm -f
-CFLAGS=	-Wall -Wextra -Werror -I
+CFLAGS=-Wall -Wextra -Werror
 
-NAME =	libftprintf.a
+SRCS=ft_printf.c \
+     ft_format.c \
+     ft_print_hex.c \
+     ft_print_integer.c \
+     ft_print_ptr.c \
+	 ft_print_string.c \
+	 ft_print_uint.c \
+	 ft_putchar.c \
+	 ft_print_char.c
 
-all:	$(NAME)
 
-$(NAME):	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
+OBJS=${SRCS:.c=.o}
 
+.c.o:
+	${CC} ${FLAGS} -c $<
+all: ${NAME}
+
+$(NAME): ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 clean:
-		$(RM) $(OBJS)
+	rm -rf ${OBJS}
+fclean: clean
+	rm -rf ${NAME}
 
-fclean:	clean
-		$(RM) $(NAME)
-
-re:		fclean $(NAME)
+re: fclean all

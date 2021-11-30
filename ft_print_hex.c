@@ -6,17 +6,17 @@
 /*   By: kel-alam <kel-alam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 09:17:45 by kel-alam          #+#    #+#             */
-/*   Updated: 2021/11/23 16:22:01 by kel-alam         ###   ########.fr       */
+/*   Updated: 2021/11/30 08:35:17 by kel-alam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_length_hex(unsigned int number)
+int	ft_length_hex(unsigned long long number)
 {
 	int	len;
 
-	len = 1;
+	len = (number == 0);
 	while (number != 0)
 	{
 		number /= 16;
@@ -25,8 +25,7 @@ int	ft_length_hex(unsigned int number)
 	return (len);
 }
 
-
-void	ft_put_hex(unsigned int number, const char format)
+void	ft_put_hex(unsigned long long number, const char format)
 {
 	if (number >= 16)
 	{
@@ -40,19 +39,21 @@ void	ft_put_hex(unsigned int number, const char format)
 		else
 		{
 			if (format == 'x')
-				ft_print_char((number - 10 + 'a') + '0');
+				ft_print_char(number - 10 + 'a');
 			if (format == 'X')
-				ft_print_char((number - 10 + 'A') + 0);
+				ft_print_char(number - 10 + 'A');
 		}
 	}
 }
 
-int	ft_print_hex(unsigned int number, const char format)
+int	ft_print_hex(unsigned long long number, const char format)
 {
 	if (number == 0)
-		return (0);
+	{
+		ft_print_char('0');
+		return (1);
+	}
 	else
 		ft_put_hex(number, format);
 	return (ft_length_hex(number));
 }
-//ok

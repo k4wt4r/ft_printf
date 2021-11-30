@@ -6,13 +6,15 @@
 /*   By: kel-alam <kel-alam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:43:12 by kel-alam          #+#    #+#             */
-/*   Updated: 2021/11/23 14:51:13 by kel-alam         ###   ########.fr       */
+/*   Updated: 2021/11/30 09:55:59 by kel-alam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <unistd.h>
-void	ft_print_char(char c)
+
+int	ft_print_char(char c)
 {
 	write (1, &c, 1);
+	return (1);
 }
